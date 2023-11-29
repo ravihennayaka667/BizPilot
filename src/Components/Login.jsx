@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import '../assets/Login.css';
 
 
 const defaultTheme = createTheme();
@@ -28,7 +28,10 @@ export default function Login() {
   };
 
   return (
+<>
 
+
+<div className="login" >
       <ThemeProvider theme={defaultTheme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -100,7 +103,7 @@ export default function Login() {
           </Box>
         </Container>
       </ThemeProvider>
-
-  
+</div>
+      </>
   );
 }
