@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { faUniversalAccess, faUser, faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
-
+import Typography from '@mui/material/Typography';
 
 
 export default function AdminSection() {
@@ -30,7 +30,9 @@ export default function AdminSection() {
                 <ListItemIcon>
                     <FontAwesomeIcon id='icon' icon={faUniversalAccess} size='lg' />
                 </ListItemIcon>
-                <ListItemText primary="Administration" />
+                
+                <ListItemText primary={<Typography variant="body2">Administration</Typography>} />
+
                 {openAdministration ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openAdministration} timeout="auto" unmountOnExit>
@@ -39,7 +41,9 @@ export default function AdminSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faUser} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Manage Users" />
+                   
+                        <ListItemText primary={<Typography variant="body2">Manage Users</Typography>} />
+
                     </ListItemButton>
                 </List>
 
@@ -49,7 +53,9 @@ export default function AdminSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faUnlockAlt} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Access Controll" />
+                 
+                        <ListItemText primary={<Typography variant="body2">Access Controll</Typography>} />
+
                     </ListItemButton>
                 </List>
             </Collapse>

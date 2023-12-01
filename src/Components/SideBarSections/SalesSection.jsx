@@ -9,6 +9,7 @@ import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import Typography from '@mui/material/Typography';
 
 
 import { faTruck, faUser, faFile } from '@fortawesome/free-solid-svg-icons';
@@ -50,7 +51,7 @@ export default function SalesSection() {
                 <ListItemIcon>
                     <FontAwesomeIcon id='icon' icon={faTruck} size='lg' />
                 </ListItemIcon>
-                <ListItemText primary="Sales" />
+                <ListItemText primary={<Typography variant="body2">Sales</Typography>} />
                 {openSales ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openSales} timeout="auto" unmountOnExit>
@@ -59,7 +60,8 @@ export default function SalesSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faFile} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Invoice" />
+                    
+                        <ListItemText primary={<Typography variant="body2">Invoice</Typography>} />
                         {openInvoice ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={openInvoice} timeout="auto" unmountOnExit>
@@ -71,13 +73,16 @@ export default function SalesSection() {
                                 <ListItemIcon>
                                     {/* Your Icon Component */}
                                 </ListItemIcon>
-                                <ListItemText primary="Add Invoice" />
+                                
+                                <ListItemText primary={<Typography variant="body2">Add Invoice</Typography>} />
+
                             </ListItemButton>
                             <ListItemButton sx={{ pl: 4 }} id='ListItmBtn' component={Link} to="/invoiceView">
                                 <ListItemIcon>
                                     {/* Your Icon Component */}
                                 </ListItemIcon>
-                                <ListItemText primary="View Invoice" />
+                               
+                                <ListItemText primary={<Typography variant="body2">View Invoice</Typography>} />
                             </ListItemButton>
                         </List>
                     </Collapse>
@@ -91,7 +96,8 @@ export default function SalesSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faUser} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Customers" />
+                        
+                        <ListItemText primary={<Typography variant="body2">Customers</Typography>} />
                         {openCustomers ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={openCustomers} timeout="auto" unmountOnExit>
@@ -100,14 +106,18 @@ export default function SalesSection() {
                                 <ListItemIcon>
                                     {/* Your Icon Component */}
                                 </ListItemIcon>
-                                <ListItemText primary="Add Customers" />
+                               
+                                <ListItemText primary={<Typography variant="body2">Add Customers</Typography>} />
+
                             </ListItemButton>
                             <ListItemButton sx={{ pl: 4 }} id='ListItmBtn' component={Link} to ='/viewCustomers'>
                                 
                                 <ListItemIcon>
                                     {/* Your Icon Component */}
                                 </ListItemIcon>
-                                <ListItemText primary="View Customers" />
+                               
+                                <ListItemText primary={<Typography variant="body2">View Customers</Typography>} />
+
                             </ListItemButton>
                         </List>
                     </Collapse>

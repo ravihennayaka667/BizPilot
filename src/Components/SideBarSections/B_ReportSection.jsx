@@ -7,9 +7,9 @@ import { ListItemButton } from "@mui/material";
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Typography from '@mui/material/Typography';
 
-
-import { faList , faClipboard } from "@fortawesome/free-solid-svg-icons";
+import { faList, faClipboard } from "@fortawesome/free-solid-svg-icons";
 
 export default function B_ReportSection() {
 
@@ -49,7 +49,9 @@ export default function B_ReportSection() {
                 <ListItemIcon>
                     <FontAwesomeIcon id='icon' icon={faList} size='lg' />
                 </ListItemIcon>
-                <ListItemText primary="B-Report (s)" />
+               
+                <ListItemText primary={<Typography variant="body2">B-Report (s)</Typography>} />
+
                 {openReport ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openReport} timeout="auto" unmountOnExit>
@@ -58,7 +60,9 @@ export default function B_ReportSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faClipboard} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Sales Report(s)" />
+                       
+                        <ListItemText primary={<Typography variant="body2">Sales Report(s)</Typography>} />
+
                         {openSalesReport ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={openSalesReport} timeout="auto" unmountOnExit>
@@ -67,13 +71,17 @@ export default function B_ReportSection() {
                                 <ListItemIcon>
 
                                 </ListItemIcon>
-                                <ListItemText primary="Test  item" />
+                           
+                                <ListItemText primary={<Typography variant="body2">Test  item</Typography>} />
+
                             </ListItemButton>
                             <ListItemButton sx={{ pl: 4 }} id='ListItmBtn'>
                                 <ListItemIcon>
 
                                 </ListItemIcon>
-                                <ListItemText primary="View Delivery Note" />
+                             
+                                <ListItemText primary={<Typography variant="body2">View Delivery Note</Typography>} />
+
                             </ListItemButton>
                         </List>
                     </Collapse>
@@ -87,7 +95,9 @@ export default function B_ReportSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faClipboard} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Stock Report(s)" />
+                       
+                        <ListItemText primary={<Typography variant="body2">Stock Report(s)</Typography>} />
+
                         {openStock ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={openStock} timeout="auto" unmountOnExit>
@@ -96,7 +106,9 @@ export default function B_ReportSection() {
                                 <ListItemIcon>
                                     {/* Your Icon Component */}
                                 </ListItemIcon>
-                                <ListItemText primary="View Receipts" />
+                              
+                                <ListItemText primary={<Typography variant="body2">View Receipts</Typography>} />
+
                             </ListItemButton>
 
                         </List>
@@ -111,7 +123,9 @@ export default function B_ReportSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faClipboard} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Finance Report(s)" />
+                     
+                        <ListItemText primary={<Typography variant="body2">Finance Report(s)</Typography>} />
+
                         {openFinance ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={openFinance} timeout="auto" unmountOnExit>
@@ -120,7 +134,9 @@ export default function B_ReportSection() {
                                 <ListItemIcon>
                                     {/* Your Icon Component */}
                                 </ListItemIcon>
-                                <ListItemText primary="View Receipts" />
+                          
+                                <ListItemText primary={<Typography variant="body2">View Receipts</Typography>} />
+
                             </ListItemButton>
 
                         </List>

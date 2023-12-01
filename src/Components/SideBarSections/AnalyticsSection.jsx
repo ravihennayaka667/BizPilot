@@ -8,6 +8,7 @@ import { faLineChart } from "@fortawesome/free-solid-svg-icons";
 import { ListItemButton } from "@mui/material";
 import Collapse from '@mui/material/Collapse';
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import Typography from '@mui/material/Typography';
 
 export default function SalesSection() {
     // handle the Analytics dropdown
@@ -25,7 +26,9 @@ export default function SalesSection() {
                 <ListItemIcon>
                     <FontAwesomeIcon id='icon' icon={faLineChart} size='lg' />
                 </ListItemIcon>
-                <ListItemText primary="Analytics" />
+             
+                <ListItemText primary={<Typography variant="body2">Analytics</Typography>} />
+
                 {openAnalytics ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={openAnalytics} timeout="auto" unmountOnExit>
@@ -34,7 +37,9 @@ export default function SalesSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faAdd} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="Add-GRN" />
+                     
+                        <ListItemText primary={<Typography variant="body2">Add-GRN</Typography>} />
+
                     </ListItemButton>
                 </List>
 
@@ -44,7 +49,9 @@ export default function SalesSection() {
                         <ListItemIcon>
                             <FontAwesomeIcon id='icon' icon={faEye} size='xs' />
                         </ListItemIcon>
-                        <ListItemText primary="View-GRN" />
+                       
+                        <ListItemText primary={<Typography variant="body2">View-GRN</Typography>} />
+
                     </ListItemButton>
                 </List>
             </Collapse>

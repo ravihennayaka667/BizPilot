@@ -95,7 +95,7 @@ function AddInvoice() {
         <>
 
 
-            <div style={{ border: '1px solid #AAB7B8', boxShadow: '5px 5px 5px #AAB7B8', borderRadius: '5px', marginBottom: '5px', paddingLeft: '10px' }}>
+            {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '5px 5px 5px #AAB7B8', borderRadius: '5px', marginBottom: '5px', paddingLeft: '10px' }}> */}
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link underline="hover" color="inherit" href="/">
                         SALES
@@ -109,7 +109,7 @@ function AddInvoice() {
                     </Link>
                     <Typography color="text.primary">ADD INVOICE</Typography>
                 </Breadcrumbs>
-            </div>
+            {/* </div> */}
 
             <Box
                 component="form"
@@ -120,7 +120,7 @@ function AddInvoice() {
                 autoComplete="off"
             >
 
-                <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '15px' }}>
+                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '15px' }}> */}
 
                     <Typography variant="h6" gutterBottom>
                         CUSTOMER DETAILS
@@ -162,8 +162,8 @@ function AddInvoice() {
                     </Grid>
 
 
-                </div>
-                <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '15px' }}>
+                {/* </div> */}
+                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '15px' }}> */}
                     <Typography variant="h6" paddingTop={'15pt'} gutterBottom>
                         INVOICE DETAILS
                     </Typography>
@@ -232,8 +232,8 @@ function AddInvoice() {
                         </Grid>
                     </Grid>
 
-                </div>
-                <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '10px' }}>
+                {/* </div> */}
+                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '10px' }}> */}
 
                     <Typography variant="h6" paddingTop={'15pt'} gutterBottom>
                         ITEMS DETAILS
@@ -286,7 +286,7 @@ function AddInvoice() {
                     </Grid>
 
 
-                </div>
+                {/* </div> */}
 
 
 
@@ -348,6 +348,8 @@ function AddInvoice() {
                     </Grid>
                 </Grid>
             </Box>
+        
+      
         </>
     );
 

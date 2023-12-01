@@ -16,8 +16,7 @@ export default function AddCustomers() {
   return (
     <>
 
-      <div style={{ border: '1px solid #AAB7B8', boxShadow: '5px 5px 5px #AAB7B8', borderRadius: '5px', paddingLeft: '10px', marginBottom: '10px' }}>
-        <Breadcrumbs aria-label="breadcrumb">
+       <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
             MUI
           </Link>
@@ -30,8 +29,7 @@ export default function AddCustomers() {
           </Link>
           <Typography color="text.primary">Breadcrumbs</Typography>
         </Breadcrumbs>
-      </div>
-
+     
 
       <Box
         component="form"

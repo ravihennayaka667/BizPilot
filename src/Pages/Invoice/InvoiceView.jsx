@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { TextField , Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -17,8 +17,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '@mui/material';
-import {Typography} from '@mui/material';
-
+import { Typography } from '@mui/material';
+import {Container} from '@mui/material';
 
 
 export default function InvoiceView() {
@@ -32,24 +32,25 @@ export default function InvoiceView() {
             fontSize: 14,
         },
     }));
-    
-    
+
+
     const sampleData = [
         { id: 1, itemCode: 'ABC123', itemDesc: 'Sample Item 1', qty: 5, unitPrice: 10, amount: 50 },
         { id: 2, itemCode: 'DEF456', itemDesc: 'Sample Item 2', qty: 3, unitPrice: 15, amount: 45 },
         { id: 3, itemCode: 'GHI789', itemDesc: 'Sample Item 3', qty: 2, unitPrice: 20, amount: 40 },
     ];
-    
+
 
 
     return (
         <>
-        
-        <div style={{ border: '1px solid #AAB7B8', boxShadow: '5px 5px 5px #AAB7B8', borderRadius: '5px', marginBottom: '5px', paddingLeft: '10px' }}>
-      
+            <Container fixed>
+
+                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '5px 5px 5px #AAB7B8', borderRadius: '5px', marginBottom: '0px', paddingLeft: '10px' }}> */}
+
 
                 <Breadcrumbs aria-label="breadcrumb">
-           
+
                     <Link underline="hover" color="inherit" href="/">
                         SALES
                     </Link>
@@ -62,52 +63,51 @@ export default function InvoiceView() {
                     </Link>
                     <Typography color="text.primary">VIEW INVOICE</Typography>
                 </Breadcrumbs>
-            </div>
+                {/* </div> */}
 
-        <div style={{marginTop:'20px'}}>
-            <TextField id="outlined-basic" label="--INVOICE NO--" variant="outlined" size='small' /> 
-           <Button variant="contained" style={{marginLeft:'10px'}}>Search</Button>
+                <div style={{ marginTop: '20px' }}>
+                    <TextField id="outlined-basic" label="--INVOICE NO--" variant="outlined" size='small' />
+                    <Button variant="contained" style={{ marginLeft: '10px' }}>Search</Button>
 
-        </div>
-        
-        <div style={{paddingTop:'40px'}}>
-        <TableContainer component={Paper}>
-                    <Table xs={12} sm={6} md={3} aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
+                </div>
 
+            
+                    <TableContainer >
+                        <Table xs={12} sm={6} md={3} aria-label="customized table" >
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>#</StyledTableCell>
+                                    <StyledTableCell align="right" style={{ width: '200px' }}>Invoice code</StyledTableCell>
+                                    <StyledTableCell align="right" style={{ width: '200px' }}>Invoice Ammount</StyledTableCell>
+                                    <StyledTableCell align="right" style={{ width: '200px' }}>Invoiced QTY</StyledTableCell>
+                                    <StyledTableCell align="right" style={{ width: '200px' }}>Action</StyledTableCell>
 
-
-                                <StyledTableCell>#</StyledTableCell>
-                                <StyledTableCell align="right">Invoice code</StyledTableCell>
-                                <StyledTableCell align="right">Invoice Ammount</StyledTableCell>
-                                <StyledTableCell align="right">Invoiced QTY</StyledTableCell>
-                                <StyledTableCell align="right">Action</StyledTableCell>
-                               
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-
-                            {sampleData.map((row) => (
-                                <TableRow key={row.id}>
-                                    <StyledTableCell component="th" scope="row">
-                                        {row.id}
-                                    </StyledTableCell>
-                                    <StyledTableCell align="right">{row.itemCode}</StyledTableCell>
-                                    <StyledTableCell align="right">{row.itemDesc}</StyledTableCell>
-                                    <StyledTableCell align="right">{row.qty}</StyledTableCell>
-                                   <StyledTableCell align="right"> <IconButton aria-label="delete">
-                                        <DeleteIcon />
-                                    </IconButton></StyledTableCell>
                                 </TableRow>
-                            ))}
+                            </TableHead>
+                            <TableBody>
 
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                                {sampleData.map((row) => (
+                                    <TableRow key={row.id}>
+                                        <StyledTableCell component="th" scope="row">
+                                            {row.id}
+                                        </StyledTableCell>
+                                        <StyledTableCell align="right">{row.itemCode}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.itemDesc}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.qty}</StyledTableCell>
+                                        <StyledTableCell align="right"> <IconButton aria-label="delete">
+                                            <DeleteIcon />
+                                        </IconButton></StyledTableCell>
+                                    </TableRow>
+                                ))}
 
-        </div>
-        </>
-    );
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+
+               
+                </Container>
+
+                </>
+                );
 
 }
