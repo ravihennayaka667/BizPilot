@@ -22,7 +22,7 @@ function App() {
      
         <Routes>
          {/* <Route path="/" element={<TestTable/>} /> */}
-        <Route path="/" element={<Navbar/>} />
+        <Route path="/" element={<Navbar><Dashboard/></Navbar>} />
         <Route path="/invoiceAdd" element={<Navbar><AddInvoice /></Navbar>} />
         <Route path="/invoiceView" element={<Navbar><InvoiceView /></Navbar>} />
         <Route path="/addCustomers" element={<Navbar><AddCustomers /></Navbar>} />

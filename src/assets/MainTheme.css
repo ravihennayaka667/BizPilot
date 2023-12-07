@@ -1,7 +1,7 @@
 #cardHeader{
     
-    background: rgb(149,44,235);
-    background: linear-gradient(90deg, rgba(149,44,235,1) 15%, rgba(255,255,255,1) 100%, rgba(224,170,255,1) 100%);     
+    background:5a189a;
+    background: linear-gradient(90deg, rgb(112, 17, 189) 15%, rgb(185, 96, 236) 100%);     
 }
 
 #CardTitle{
