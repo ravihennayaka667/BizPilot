@@ -11,6 +11,7 @@ import ViewGRN from "./Pages/GRN/ViewGRN";
 import Login from "./Components/Login";
 
 import Navbar from './Components/Navbar'
+import TestTable from './Pages/TestTable';
 
 function App() {
  
@@ -20,8 +21,8 @@ function App() {
      
      
         <Routes>
-         <Route path="/" element={<Login />} />
-        {/* <Route path="/" element={<Navbar/>} /> */}
+         {/* <Route path="/" element={<TestTable/>} /> */}
+        <Route path="/" element={<Navbar/>} />
         <Route path="/invoiceAdd" element={<Navbar><AddInvoice /></Navbar>} />
         <Route path="/invoiceView" element={<Navbar><InvoiceView /></Navbar>} />
         <Route path="/addCustomers" element={<Navbar><AddCustomers /></Navbar>} />

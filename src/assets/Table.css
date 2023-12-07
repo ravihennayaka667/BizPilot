@@ -1,0 +1,27 @@
+th{
+
+width:300px;
+min-width: auto;
+    height: 50px;
+ 
+    position: center;
+    align-items: Left;
+    text-align: left;
+
+
+
+
+
+}
+
+.tableHeader{
+
+    background-color: #3c096c;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #3c096c;
+}
+
+td{background-color: aliceblue;
+border-radius: 5px;
+}

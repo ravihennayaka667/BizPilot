@@ -93,11 +93,11 @@ export default function Navbar({ children }) {
       <ThemeProvider theme={defaultTheme}>
         <Box sx={{ display: 'flex' }}>
           <CssBaseline />
-          <AppBar position="absolute" open={open}>
+          <AppBar position="absolute" open={open}  style={{backgroundColor:"#10002b"}}>
             <Toolbar
               sx={{
                 pr: '24px', // keep right padding when drawer closed
-              }}
+              }} 
             >
               <IconButton
                 edge="start"
@@ -116,7 +116,7 @@ export default function Navbar({ children }) {
                 variant="h6"
                 color="inherit"
                 noWrap
-                sx={{ flexGrow: 1 }}
+                sx={{ flexGrow: 1 , color:"white" }}
               >
                 Dashboard
               </Typography>
@@ -135,15 +135,15 @@ export default function Navbar({ children }) {
                 justifyContent: 'flex-end',
                 px: [1],
               }}
-            >
-              <IconButton onClick={toggleDrawer}>
+              style={{backgroundColor:"#10002b"}} >
+              <IconButton onClick={toggleDrawer} style={{backgroundColor:'white'}} >
                 <ChevronLeftIcon />
               </IconButton>
             </Toolbar>
             <Divider />
-            <List component="nav">
+            <List component="nav" style={{backgroundColor:"white"}}>
               {mainListItems}
-              <Divider sx={{ my: 1 }} />
+              <Divider sx={{ my: 1 }}   />
               {secondaryListItems}
             </List>
           </Drawer>
@@ -154,7 +154,7 @@ export default function Navbar({ children }) {
             }}
           >
             <Toolbar />
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }} style={{marginLeft:'4%'}}>
+            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
              
               {children}
              

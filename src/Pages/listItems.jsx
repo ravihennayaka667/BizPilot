@@ -30,7 +30,7 @@ export const mainListItems = (
     <AnalyticsSection />
     <AdminSection />
 
-    <SalesSection />
+ 
 
 
 

@@ -1,0 +1,15 @@
+#cardHeader{
+    
+    background: rgb(149,44,235);
+    background: linear-gradient(90deg, rgba(149,44,235,1) 15%, rgba(255,255,255,1) 100%, rgba(224,170,255,1) 100%);     
+}
+
+#CardTitle{
+    color:aliceblue;
+    
+
+}
+
+#search_button{
+
+}

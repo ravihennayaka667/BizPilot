@@ -93,10 +93,10 @@ export default function Login() {
                     Forgot password?
                   </Link>
                 </Grid>
-                <Grid item>
-                  <Button component={Link} to="/signup" variant="body2">
+                <Grid item xs>
+                  <Link href="#" variant="body2">
                     {"Don't have an account? Sign Up"}
-                  </Button>
+                    </Link>
                 </Grid>
               </Grid>
             </Box>

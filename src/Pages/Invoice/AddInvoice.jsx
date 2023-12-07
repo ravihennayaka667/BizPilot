@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import {Typography} from '@mui/material';
+import { Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/material/styles';
 
@@ -18,12 +18,18 @@ import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
 
 
 import Button from '@mui/material/Button';
 
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '@mui/material';
+
+import '../../assets/MainTheme.css';
+
 
 const invoiceType = [
     {
@@ -95,7 +101,7 @@ function AddInvoice() {
         <>
 
 
-            {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '5px 5px 5px #AAB7B8', borderRadius: '5px', marginBottom: '5px', paddingLeft: '10px' }}> */}
+            <div style={{ border: '1px solid #AAB7B8', borderRadius: '5px', marginBottom: '5px', paddingLeft: '10px' }}>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link underline="hover" color="inherit" href="/">
                         SALES
@@ -109,7 +115,7 @@ function AddInvoice() {
                     </Link>
                     <Typography color="text.primary">ADD INVOICE</Typography>
                 </Breadcrumbs>
-            {/* </div> */}
+            </div>
 
             <Box
                 component="form"
@@ -120,186 +126,204 @@ function AddInvoice() {
                 autoComplete="off"
             >
 
-                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '15px' }}> */}
-
-                    <Typography variant="h6" gutterBottom>
-                        CUSTOMER DETAILS
-                    </Typography>
-
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-password-input"
-                                label="Customer Name"
-                                type="text"
-                                size="small"
-                            />
+                <Card style={{ marginBottom: '15px', marginTop: '15px' }}>
+                    <CardHeader id='cardHeader'
+                        title={
+                            <Typography id='CardTitle' variant="h9" gutterBottom >
+                                CUSTOMER DETAILS
+                            </Typography>
+                        }
+                        
+                    />
+                    <CardContent>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Customer Name"
+                                    type="text"
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Customer Address"
+                                    type="text"
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Customer Phone"
+                                    type="text"
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Customer Phone"
+                                    type="text"
+                                    size="small"
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-password-input"
-                                label="Customer Address"
-                                type="text"
-                                size="small"
-                            />
+                    </CardContent>
+                </Card>
+
+
+                <Card style={{ marginBottom: '15px', marginTop: '15px' }}>
+                    <CardHeader  id='cardHeader'
+                        title={
+                            <Typography id='CardTitle' variant="h9" gutterBottom >
+                                INVOICE DETAILS
+                            </Typography>
+                        }
+                     
+                    />
+                    <CardContent>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-password-input"
+                                    helperText="Please select Invoice date"
+                                    type="date"
+                                    defaultValue={new Date()}
+                                    size="small"
+                                // label="Select Invoice Date"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-select-currency"
+                                    select
+                                    label="--INVOICE TYPE--"
+
+                                    helperText="Please select your currency"
+                                    size="small"
+                                >
+                                    {invoiceType.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-select-currency"
+                                    select
+                                    label="--SALES REP--"
+                                    helperText="Select Sales Rep"
+                                    size="small"
+                                >
+                                    {salesReps.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="outlined-password-input"
+
+                                    select
+                                    label="--CURRENCY--"
+                                    helperText="Select Currency Type"
+
+                                    size="small"
+                                >
+
+
+                                    {currencies.map((options) => (
+                                        <MenuItem key={options.value} value={options.value}>
+                                            {options.label}
+                                        </MenuItem>
+
+                                    ))}
+                                </TextField>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-password-input"
-                                label="Customer Phone"
-                                type="text"
-                                size="small"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-password-input"
-                                label="Customer Phone"
-                                type="text"
-                                size="small"
-                            />
-                        </Grid>
-                    </Grid>
+                    </CardContent>
+                </Card>
 
+                <Card style={{ marginBottom: '15px', marginTop: '15px' }}>
+                    <CardHeader  id='cardHeader'
+                        title={
+                            <Typography id='CardTitle' variant="h9" gutterBottom >
+                                ITEM DETAILS
+                            </Typography>
+                        }
+                     
+                    />
+                    <CardContent>
 
-                {/* </div> */}
-                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '15px' }}> */}
-                    <Typography variant="h6" paddingTop={'15pt'} gutterBottom>
-                        INVOICE DETAILS
-                    </Typography>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="item-name-input"
+                                    label="Item Name"
+                                    select
+                                    size="small"
+                                    width="700"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="item-price-input"
+                                    label="Item Price"
 
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-password-input"
-                                helperText="Please select Invoice date"
-                                type="date"
-                                defaultValue={new Date()}
-                                size="small"
-                            // label="Select Invoice Date"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-select-currency"
-                                select
-                                label="--INVOICE TYPE--"
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id="qty-inhand-input"
+                                    label="Qty In Hand"
+                                    type="text"
+                                    size="small"
+                                />
+                            </Grid>
 
-                                helperText="Please select your currency"
-                                size="small"
-                            >
-                                {invoiceType.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-select-currency"
-                                select
-                                label="--SALES REP--"
-                                helperText="Select Sales Rep"
-                                size="small"
-                            >
-                                {salesReps.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="outlined-password-input"
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    id=""
+                                    label="Invoiced Qty"
+                                    type="text"
+                                    size="small"
+                                />
+                            </Grid>
 
-                                select
-                                label="--CURRENCY--"
-                                helperText="Select Currency Type"
-
-                                size="small"
-                            >
-
-
-                                {currencies.map((options) => (
-                                    <MenuItem key={options.value} value={options.value}>
-                                        {options.label}
-                                    </MenuItem>
-
-                                ))}
-                            </TextField>
-                        </Grid>
-                    </Grid>
-
-                {/* </div> */}
-                {/* <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '10px', paddingBottom: '10px', paddingLeft: '10px', marginBottom: '15px', marginTop: '10px' }}> */}
-
-                    <Typography variant="h6" paddingTop={'15pt'} gutterBottom>
-                        ITEMS DETAILS
-                    </Typography>
-
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="item-name-input"
-                                label="Item Name"
-                                select
-                                size="small"
-                                width="700"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="item-price-input"
-                                label="Item Price"
-
-                                size="small"
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id="qty-inhand-input"
-                                label="Qty In Hand"
-                                type="text"
-                                size="small"
-                            />
                         </Grid>
 
-                        <Grid item xs={12} sm={6} md={3}>
-                            <TextField
-                                id=""
-                                label="Invoiced Qty"
-                                type="text"
-                                size="small"
-                            />
+                        <Grid container spacing={2}>
+                            <Grid item xs={10} sm={10} md={11}>
+                                <div style={{ textAlign: 'right' }}>
+                                    <Button variant="contained">Add To List</Button>
+                                </div>
+                            </Grid>
                         </Grid>
 
-                    </Grid>
 
-                    <Grid container spacing={2}>
-                        <Grid item xs={10} sm={10} md={11}>
-                            <div style={{ textAlign: 'right' }}>
-                                <Button variant="contained">Add To List</Button>
-                            </div>
-                        </Grid>
-                    </Grid>
-
-
-                {/* </div> */}
+                    </CardContent>
+                </Card>
 
 
 
 
 
-                <Typography variant="h6" paddingTop={'15pt'} gutterBottom>
+
+                <Typography id='CardTitle' variant="h6" paddingTop={'15pt'} gutterBottom>
                     ITEM LIST
                 </Typography>
 
 
-                <TableContainer component={Paper}>
-                    <Table xs={12} sm={4} md={3} aria-label="customized table">
-                        <TableHead>
+                <TableContainer component={Paper}  >
+                    <Table xs={12} sm={4} md={3} aria-label="customized table"  >
+                        <TableHead  >
                             <TableRow>
 
 
@@ -348,8 +372,8 @@ function AddInvoice() {
                     </Grid>
                 </Grid>
             </Box>
-        
-      
+
+
         </>
     );
 
