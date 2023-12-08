@@ -10,8 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
-
-
+import { Card, CardHeader , CardContent } from "@mui/material";
 
 
 export default function GrnAdd() {
@@ -61,11 +60,18 @@ export default function GrnAdd() {
         noValidate
         autoComplete="off"
       >
+        <Card style={{ marginBottom: '15px', marginTop: '15px' }}>
+          <CardHeader id='cardHeader'
+            title={
+              <Typography id='CardTitle' variant="h9" gutterBottom>
+                GRN DETAILS
+              </Typography>
 
-        <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '15px', paddingLeft: '10px', marginBottom: '15px' }}>
-          <Typography variant="h6" gutterBottom>
-            GRN DETAILS
-          </Typography>
+            }
+
+          />
+          <CardContent>
+
 
           <Grid container spacing={2}>
 
@@ -100,15 +106,25 @@ export default function GrnAdd() {
               />
             </Grid>
           </Grid>
-        </div>
+          </CardContent>
+        </Card>
 
 
 
-        <div style={{ border: '1px solid #AAB7B8', boxShadow: '10px 10px 20px #AAB7B8', borderRadius: '5px', paddingTop: '15px', paddingLeft: '10px', marginBottom: '15px', marginTop: '50px' }}>
 
-          <Typography variant="h6" gutterBottom>
-            ADD GRN
-          </Typography>
+        <Card style={{ marginBottom: '15px', marginTop: '15px' }}>
+          <CardHeader id='cardHeader'
+            title={
+              <Typography id='CardTitle' variant="h9" gutterBottom>
+              ADD GRN
+            </Typography>
+
+            }
+
+          />
+          <CardContent></CardContent>
+
+    
 
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={3}>
@@ -197,7 +213,8 @@ export default function GrnAdd() {
 
 
           </Grid>
-        </div>
+       </Card>
+       
 
 
         <Typography variant="h6" paddingTop={'15pt'} gutterBottom>

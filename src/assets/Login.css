@@ -4,5 +4,22 @@
     margin-top: 5%;
     margin-left: 500px;
     margin-right: 500px;
- 
+
 }
+
+body {
+    background: linear-gradient(-45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+    background-size: 400% 400%;
+    animation: gradientChange 10s ease infinite;
+  }
+  
+  @keyframes gradientChange {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  #bglogin{
+
+    
+   }

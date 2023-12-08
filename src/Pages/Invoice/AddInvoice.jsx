@@ -27,9 +27,8 @@ import Button from '@mui/material/Button';
 
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '@mui/material';
-
 import '../../assets/MainTheme.css';
-import '../../assets/Table.css';
+
 
 const invoiceType = [
     {
@@ -355,7 +354,7 @@ function AddInvoice() {
 
                 <TableContainer component={Paper}  >
                     <Table xs={12} sm={4} md={3} aria-label="customized table"  >
-                    <TableHead style={{color:'red'}}>
+                    <TableHead>
                     <TableRow>
 
                                 <StyledTableCell>#</StyledTableCell>
