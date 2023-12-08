@@ -110,7 +110,7 @@ export default function InvoiceView() {
                     
                     <TableContainer component={Paper} style={{marginTop:'50px'}}>
                         <Table {...getTableProps()} sx={{ minWidth: 650 }}>
-                            <TableHead style={{backgroundColor:'#5a189a'}}>
+                            <TableHead style={{backgroundColor:'#5a1891'}}>
                                 {headerGroups.map((headerGroup) => (
                                     <TableRow {...headerGroup.getHeaderGroupProps()}>
                                         {headerGroup.headers.map((column) => (

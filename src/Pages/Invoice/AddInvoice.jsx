@@ -29,7 +29,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '@mui/material';
 
 import '../../assets/MainTheme.css';
-
+import '../../assets/Table.css';
 
 const invoiceType = [
     {
@@ -85,17 +85,27 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 
-const sampleData = [
-    { id: 1, itemCode: 'ABC123', itemDesc: 'Sample Item 1', qty: 5, unitPrice: 10, amount: 50 },
-    { id: 2, itemCode: 'DEF456', itemDesc: 'Sample Item 2', qty: 3, unitPrice: 15, amount: 45 },
-    { id: 3, itemCode: 'GHI789', itemDesc: 'Sample Item 3', qty: 2, unitPrice: 20, amount: 40 },
-];
-
-
-
 
 function AddInvoice() {
 
+    const sampleData = [];
+
+    const [items, setItems] = React.useState(sampleData);
+    
+    const[itemName ,setItemName] = React.useState('');
+    
+    const [itemPrice , setItemPrice] = React.useState('');
+    const [qtyInHand , setQtyInHand] = React.useState('');  
+    const [invoicedQty , setInvoicedQty] = React.useState('');
+    
+    
+
+
+    const handleDelete=(id)=>{
+        setItems(items.filter((item)=>item.id!==id));
+    };
+
+    
 
     return (
         <>
@@ -269,6 +279,9 @@ function AddInvoice() {
                                     select
                                     size="small"
                                     width="700"
+                                    value={itemName}
+                                    onChange={(e) => setItemName(e.target.value)
+                                    }
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6} md={3}>
@@ -277,6 +290,10 @@ function AddInvoice() {
                                     label="Item Price"
 
                                     size="small"
+                                    value={itemPrice}
+                                    onChange={(e) => setItemPrice(e.target.value)
+                                    }
+
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6} md={3}>
@@ -285,6 +302,9 @@ function AddInvoice() {
                                     label="Qty In Hand"
                                     type="text"
                                     size="small"
+                                    value={qtyInHand}
+                                    onChange={(e)=>setQtyInHand(e.target.value)}
+
                                 />
                             </Grid>
 
@@ -294,6 +314,9 @@ function AddInvoice() {
                                     label="Invoiced Qty"
                                     type="text"
                                     size="small"
+                                    value={invoicedQty}
+                                    onChange={(e)=>setInvoicedQty(e.target.value)}
+
                                 />
                             </Grid>
 
@@ -302,7 +325,16 @@ function AddInvoice() {
                         <Grid container spacing={2}>
                             <Grid item xs={10} sm={10} md={11}>
                                 <div style={{ textAlign: 'right' }}>
-                                    <Button variant="contained">Add To List</Button>
+                                    <Button style={{backgroundColor:'#7b2cbf'}} variant="contained" onClick={()=>{
+                                        setItems([...items,{id:items.length+1,
+                                            itemCode:itemName,
+                                            itemDesc:itemPrice,
+                                            qty:qtyInHand,
+                                            unitPrice:invoicedQty,
+                                            amount:qtyInHand*invoicedQty
+                                        
+                                        }]);
+                                     } }>Add To List</Button>
                                 </div>
                             </Grid>
                         </Grid>
@@ -323,10 +355,8 @@ function AddInvoice() {
 
                 <TableContainer component={Paper}  >
                     <Table xs={12} sm={4} md={3} aria-label="customized table"  >
-                        <TableHead  >
-                            <TableRow>
-
-
+                    <TableHead style={{color:'red'}}>
+                    <TableRow>
 
                                 <StyledTableCell>#</StyledTableCell>
                                 <StyledTableCell align="right">ITEM CODE</StyledTableCell>
@@ -339,7 +369,7 @@ function AddInvoice() {
                         </TableHead>
                         <TableBody>
 
-                            {sampleData.map((row) => (
+                            {items.map((row) => (
                                 <TableRow key={row.id}>
                                     <StyledTableCell component="th" scope="row">
                                         {row.id}
@@ -349,7 +379,7 @@ function AddInvoice() {
                                     <StyledTableCell align="right">{row.qty}</StyledTableCell>
                                     <StyledTableCell align="right">{row.unitPrice}</StyledTableCell>
                                     <StyledTableCell align="right">{row.amount}</StyledTableCell>
-                                    <StyledTableCell align="right"> <IconButton aria-label="delete">
+                                    <StyledTableCell align="right"> <IconButton aria-label="delete" onClick={()=>handleDelete(row.id)}>
                                         <DeleteIcon />
                                     </IconButton></StyledTableCell>
                                 </TableRow>

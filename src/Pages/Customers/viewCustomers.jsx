@@ -8,22 +8,27 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-
+import { useTable } from "react-table";
 import { tableCellClasses } from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
+
+import fakeData from '../../Components/MOCK_DATA.json';
+import '../../assets/MainTheme.css';    
+
+
 export default function ViewCustomers() {
-  const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: "#03396c",
-      color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
-  }));
+  // const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  //   [`&.${tableCellClasses.head}`]: {
+  //     backgroundColor: "#03396c",
+  //     color: theme.palette.common.white,
+  //   },
+  //   [`&.${tableCellClasses.body}`]: {
+  //     fontSize: 14,
+  //   },
+  // }));
 
   const sampleData = [
     {
@@ -52,6 +57,65 @@ export default function ViewCustomers() {
     },
   ];
 
+
+
+
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: '#03396c',
+        color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+}));
+
+
+// const sampleData = [
+//     { id: 1, itemCode: 'ABC123', itemDesc: 'Sample Item 1', qty: 5, unitPrice: 10, amount: 50 },
+//     { id: 2, itemCode: 'DEF456', itemDesc: 'Sample Item 2', qty: 3, unitPrice: 15, amount: 45 },
+//     { id: 3, itemCode: 'GHI789', itemDesc: 'Sample Item 3', qty: 2, unitPrice: 20, amount: 40 },
+// ];
+
+
+
+const data = React.useMemo(() => fakeData, []);
+const columns = React.useMemo(() => [
+    {
+        Header: "ID",
+        accessor: "id"
+
+    },
+    {
+        Header: "First Name",
+        accessor: "first_name",
+    },
+    {
+        Header: "Last Name",
+        accessor: "last_name",
+    },
+    {
+        Header: "Email",
+        accessor: "email",
+    },
+    {
+        Header: "Gender",
+        accessor: "gender",
+    },
+    {
+        Header: "University",
+        accessor: "university",
+    },
+],
+    []
+);
+
+const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data });
+
+
+
+
   return (
     <>
       <div>
@@ -61,64 +125,39 @@ export default function ViewCustomers() {
           variant="outlined"
           size="small"
         />
-        <Button variant="contained" style={{ marginLeft: "10px" }}>
+        <Button variant="contained" id="search_button" style={{ marginLeft: "10px",  }}>
           Search
         </Button>
       </div>
 
       <div style={{ paddingTop: "55px" }}>
-        <TableContainer component={Paper}>
-          <Table xs={12} sm={6} md={3} aria-label="customized table">
-            <TableHead>
-              <TableRow>
-                <StyledTableCell>#</StyledTableCell>
-                <StyledTableCell align="center">Customer code</StyledTableCell>
-                <StyledTableCell align="center">Customer Name</StyledTableCell>
-                <StyledTableCell align="center">
-                  Customer Address
-                </StyledTableCell>
-                <StyledTableCell align="center">Contact Numbers</StyledTableCell>
-                <StyledTableCell align="center">Status</StyledTableCell>
-                <StyledTableCell align="center">Action</StyledTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {sampleData.map((row) => (
-                <TableRow key={row.id}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.id}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.CustCode}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.CustName}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.CustAddress}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.Contacts}
-                  </StyledTableCell>
-
-
-                  <StyledTableCell align="center">
-                    {" "}
-                    <IconButton aria-label="delete">
-                      <DeleteIcon />
-                    </IconButton>
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                   
-                    <IconButton aria-label="Edit">
-                      <EditIcon /> 
-                    </IconButton>
-                  </StyledTableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+      <TableContainer component={Paper} style={{marginTop:'50px'}}>
+                        <Table {...getTableProps()} sx={{ minWidth: 650 }}>
+                            <TableHead style={{backgroundColor:'#5a189a'}}>
+                                {headerGroups.map((headerGroup) => (
+                                    <TableRow {...headerGroup.getHeaderGroupProps()}>
+                                        {headerGroup.headers.map((column) => (
+                                            <TableCell style={{color:'white' , fontWeight:'bold' , fontSize:'16px'}} {...column.getHeaderProps()}>
+                                                {column.render("Header")}
+                                            </TableCell>
+                                        ))}
+                                    </TableRow>
+                                ))}
+                            </TableHead>
+                            <TableBody {...getTableBodyProps()}>
+                                {rows.map((row) => {
+                                    prepareRow(row);
+                                    return (
+                                        <TableRow {...row.getRowProps()}>
+                                            {row.cells.map((cell) => (
+                                                <TableCell {...cell.getCellProps()}> {cell.render("Cell")} </TableCell>
+                                            ))}
+                                        </TableRow>
+                                    );
+                                })}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
       </div>
     </>
   );

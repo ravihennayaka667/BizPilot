@@ -216,7 +216,7 @@ export default function AddCustomers() {
                     CANCELL
                   </Button>
 
-                  <Button variant="contained">SAVE</Button>
+                  <Button  id="search_button"variant="contained">SAVE</Button>
                 </div>
               </Grid>
             </Grid>
