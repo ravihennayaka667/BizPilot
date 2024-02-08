@@ -91,7 +91,7 @@ export default function Dashboard() {
   
     <> 
     <h1>
-      Welcome to Dashboard
+   Hello !
     </h1>
      </>
   
