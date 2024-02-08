@@ -127,7 +127,7 @@ export default function Navbar({ children }) {
               </IconButton>
             </Toolbar>
           </AppBar>
-          <Drawer variant="permanent" open={open}>
+          <Drawer variant="permanent" open={open} style={{height: '100vh'}}>
             <Toolbar
               sx={{
                 display: 'flex',
@@ -141,7 +141,7 @@ export default function Navbar({ children }) {
               </IconButton>
             </Toolbar>
             <Divider />
-            <List component="nav" style={{backgroundColor:"white"}}>
+            <List component="nav" style={{backgroundColor:"white", overflow: 'auto'}}>
               {mainListItems}
               <Divider sx={{ my: 1 }}   />
               {secondaryListItems}
