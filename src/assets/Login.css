@@ -1,10 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
 
-.login{
- 
-    margin-top: 5%;
-    margin-left: 50%;
-    margin-right: 50%;
- 
-
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px; /* Adjust as needed */
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
