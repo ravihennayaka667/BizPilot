@@ -1,99 +1,82 @@
-import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
-import Box from '@mui/material/Box';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import React from 'react';
+import { Bar, Line } from 'react-chartjs-2';
+import { Card, CardContent, Typography } from '@mui/material';
 
+const data1 = {
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+        'red',
+        'blue',
+        'yellow',
+        'green',
+        'purple',
+        'orange'
+      ],
+      borderColor: [
+        'darkred',
+        'darkblue',
+        'gold',
+        'darkgreen',
+        'indigo',
+        'darkorange'
+      ],
+      borderWidth: 1
+    }
+  ]
+};
 
-function Copyright(props) {
+const data2 = {
+  labels: ['Red', 'Blue', 'Yellow'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3],
+      backgroundColor: [
+        'red',
+        'blue',
+        'yellow'
+      ],
+      borderColor: [
+        'darkred',
+        'darkblue',
+        'gold'
+      ],
+      borderWidth: 1
+    }
+  ]
+};
+
+const Dashboard = () => {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Card sx={{ width: '500px', height: '500px' }}>
+        <CardContent sx={{ height: '450px' }}>
+          <Typography variant="h5" component="div">
+            Card Title
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </Typography>
+          <Bar data={data1} />
+        </CardContent>
+      </Card>
+      <Card sx={{ width: '500px', height: '500px' }}>
+        <CardContent sx={{ height: '450px' }}>
+          <Typography variant="h5" component="div">
+            Card Title
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </Typography>
+          <Line data={data2} />
+        </CardContent>
+      </Card>
+    </div>
   );
-}
+};
 
-const drawerWidth = 240;
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    '& .MuiDrawer-paper': {
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      width: drawerWidth,
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      boxSizing: 'border-box',
-      ...(!open && {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      }),
-    },
-  }),
-);
-
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
-
-export default function Dashboard() {
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-
-  return (
-  
-    <> 
-    <h1>
-   Hello !
-    </h1>
-     </>
-  
-    );
-}
+export default Dashboard;

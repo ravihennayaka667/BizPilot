@@ -127,13 +127,14 @@ export default function Navbar({ children }) {
               </IconButton>
             </Toolbar>
           </AppBar>
-          <Drawer variant="permanent" open={open} style={{height: '100vh'}}>
+          <Drawer variant="permanent" open={open} style={{height: '100vh',overflow:'hidden'}}>
             <Toolbar
               sx={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'flex-end',
                 px: [1],
+
               }}
               style={{backgroundColor:"#10002b"}} >
               <IconButton onClick={toggleDrawer} style={{backgroundColor:'white'}} >
@@ -141,7 +142,7 @@ export default function Navbar({ children }) {
               </IconButton>
             </Toolbar>
             <Divider />
-            <List component="nav" style={{backgroundColor:"white", overflow: 'auto'}}>
+            <List component="nav" style={{backgroundColor:"white", overflow: 'hidden'}}>
               {mainListItems}
               <Divider sx={{ my: 1 }}   />
               {secondaryListItems}
