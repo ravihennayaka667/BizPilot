@@ -11,7 +11,6 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Typography from '@mui/material/Typography';
 
 export default function SalesSection() {
-    // handle the Analytics dropdown
 
     const [openAnalytics, setopenAnalytics] = React.useState(false);
 
@@ -38,7 +37,7 @@ export default function SalesSection() {
                             <FontAwesomeIcon id='icon' icon={faAdd} size='xs' />
                         </ListItemIcon>
                      
-                        <ListItemText primary={<Typography variant="body2">Add-GRN</Typography>} />
+                        <ListItemText primary={<Typography variant="body2">Sales Analysis</Typography>} />
 
                     </ListItemButton>
                 </List>
@@ -50,7 +49,7 @@ export default function SalesSection() {
                             <FontAwesomeIcon id='icon' icon={faEye} size='xs' />
                         </ListItemIcon>
                        
-                        <ListItemText primary={<Typography variant="body2">View-GRN</Typography>} />
+                        <ListItemText primary={<Typography variant="body2">Sales Forcasting</Typography>} />
 
                     </ListItemButton>
                 </List>

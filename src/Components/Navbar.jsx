@@ -118,7 +118,7 @@ export default function Navbar({ children }) {
                 noWrap
                 sx={{ flexGrow: 1 , color:"white" }}
               >
-                Dashboard
+                BizPilot
               </Typography>
               <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">

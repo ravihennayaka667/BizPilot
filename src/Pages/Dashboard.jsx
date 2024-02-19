@@ -1,81 +1,51 @@
 import React from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import { Card, CardContent, Typography } from '@mui/material';
+import Chart from 'chart.js/auto';
 
-const data1 = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'red',
-        'blue',
-        'yellow',
-        'green',
-        'purple',
-        'orange'
-      ],
-      borderColor: [
-        'darkred',
-        'darkblue',
-        'gold',
-        'darkgreen',
-        'indigo',
-        'darkorange'
-      ],
-      borderWidth: 1
-    }
-  ]
-};
-
-const data2 = {
-  labels: ['Red', 'Blue', 'Yellow'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3],
-      backgroundColor: [
-        'red',
-        'blue',
-        'yellow'
-      ],
-      borderColor: [
-        'darkred',
-        'darkblue',
-        'gold'
-      ],
-      borderWidth: 1
-    }
-  ]
-};
 
 const Dashboard = () => {
+  const stockData = {
+    labels: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'],
+    datasets: [
+      {
+        label: 'Stock Prices',
+        data: [500, 1500, 2000, 3300, 3500],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const salesData = {
+    labels: ['1 week ago', '6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', 'Yesterday'],
+    datasets: [
+      {
+        label: 'Sales',
+        data: [1200, 1900, 3000, 5000, 2000, 3000, 3500],
+        backgroundColor: 'rgba(75,192,192,0.2)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Card sx={{ width: '500px', height: '500px' }}>
-        <CardContent sx={{ height: '450px' }}>
-          <Typography variant="h5" component="div">
-            Card Title
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </Typography>
-          <Bar data={data1} />
-        </CardContent>
-      </Card>
-      <Card sx={{ width: '500px', height: '500px' }}>
-        <CardContent sx={{ height: '450px' }}>
-          <Typography variant="h5" component="div">
-            Card Title
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </Typography>
-          <Line data={data2} />
-        </CardContent>
-      </Card>
-    </div>
+    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <Card style={{ width: '500px' ,height:'500px' }}>
+      <CardContent>
+        <Typography variant="h5">Stock Prices</Typography>
+        <Bar data={stockData} />
+      </CardContent>
+    </Card>
+    <Card style={{ width: '500px' ,height:'500px', marginLeft:'30px'  }}>
+      <CardContent>
+        <Typography variant="h5">Sales</Typography>
+        <Line data={salesData} />
+      </CardContent>
+    </Card>
+  </div>
   );
 };
 
